@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识增长方式转变 - 基础互动学习网站</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .fade-enter-active, .fade-leave-active { transition: opacity 0.5s; }
+        .fade-enter-from, .fade-leave-to { opacity: 0; }
+        .slide-up-enter-active, .slide-up-leave-active { transition: all 0.3s ease; }
+        .slide-up-enter-from, .slide-up-leave-to { transform: translateY(20px); opacity: 0; }
+        .life-example { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .knowledge-card { transition: all 0.3s ease; }
+        .knowledge-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .progress-bar { transition: width 0.5s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="app">
+        <header class="bg-white shadow-sm border-b"><div class="max-w-6xl mx-auto px-4 py-4"><div class="flex items-center justify-between"><h1 class="text-2xl font-bold text-gray-800">📚 知识增长方式转变</h1><div class="flex items-center space-x-4"><div class="text-sm text-gray-600">学习进度: {{ progress }}%</div><div class="w-32 bg-gray-200 rounded-full h-2"><div class="progress-bar bg-blue-500 h-2 rounded-full" :style="{width: progress + '%'}"></div></div></div></div></div></header>
+
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8"><h2 class="text-xl font-semibold text-gray-800 mb-4">🎯 欢迎来到互动学习之旅</h2><p class="text-gray-600 leading-relaxed">这篇论文探讨了从现代到后现代知识增长方式的重大转变。我们将通过生活化的例子和互动体验，帮助你轻松理解这些抽象的概念。</p><p class="text-sm text-gray-500">其他版本：<a class="text-blue-600 underline" href="./">终极版</a> · <a class="text-blue-600 underline" href="./complete">完整版本</a></p></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"><div v-for="(section, index) in sections" :key="index" class="knowledge-card bg-white rounded-lg shadow-md p-6 cursor-pointer" @click="currentSection = index" :class="{'ring-2 ring-blue-500': currentSection === index}"><div class="text-3xl mb-3">{{ section.icon }}</div><h3 class="text-lg font-semibold text-gray-800 mb-2">{{ section.title }}</h3><p class="text-gray-600 text-sm">{{ section.description }}</p></div></div>
+
+            <transition name="fade" mode="out-in"><div :key="currentSection" class="bg-white rounded-lg shadow-md p-8"><div class="mb-6"><h2 class="text-2xl font-bold text-gray-800 mb-2">{{ sections[currentSection].title }}</h2><p class="text-gray-600">{{ sections[currentSection].subtitle }}</p></div><div class="space-y-8"><div v-for="(point, pointIndex) in sections[currentSection].points" :key="pointIndex" class="border-l-4 border-blue-500 pl-6"><h3 class="text-lg font-semibold text-gray-800 mb-3">{{ point.title }}</h3><p class="text-gray-700 mb-4 leading-relaxed">{{ point.content }}</p><div class="life-example text-white rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🌟 生活小例子</h4><p class="text-sm leading-relaxed">{{ point.example }}</p></div><div class="bg-gray-50 rounded-lg p-4"><button @click="toggleUnderstanding(pointIndex)" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">{{ point.understood ? '✅ 已理解' : '🤔 点击理解' }}</button><transition name="slide-up"><div v-if="point.understood" class="mt-3 p-3 bg-green-50 rounded-lg"><p class="text-green-700 text-sm">🎉 太棒了！你已经理解了这个概念。{{ point.reflection }}</p></div></transition></div></div></div><div class="flex justify-between mt-8 pt-6 border-t"><button @click="previousSection" :disabled="currentSection === 0" class="bg-gray-500 hover:bg-gray-600 disabled:bg-gray-300 text-white px-6 py-2 rounded-lg transition-colors">← 上一节</button><button @click="nextSection" :disabled="currentSection === sections.length - 1" class="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white px-6 py-2 rounded-lg transition-colors">下一节 →</button></div></div></transition>
+
+            <div v-if="allUnderstood" class="mt-8 bg-green-50 border border-green-200 rounded-lg p-6"><h3 class="text-lg font-semibold text-green-800 mb-2">🎉 恭喜完成学习！</h3><p class="text-green-700">你已经掌握了知识增长方式转变的核心概念。</p></div>
+        </div>
+
+        <footer class="bg-white border-t mt-12"><div class="max-w-6xl mx-auto px-4 py-6 text-center text-gray-600"><p>📖 GitHub Pages 基础版</p></div></footer>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){ return { currentSection: 0, sections: [] }; },
+            mounted(){ this.sections = JSON.parse(document.getElementById('sections-data').textContent); },
+            computed:{ progress(){ const t=this.sections.reduce((s,x)=>s+x.points.length,0); const u=this.sections.reduce((s,x)=>s+x.points.filter(p=>p.understood).length,0); return t?Math.round((u/t)*100):0; }, allUnderstood(){ return this.sections.length && this.sections.every(s=>s.points.every(p=>p.understood)); } },
+            methods:{ toggleUnderstanding(i){ const p=this.sections[this.currentSection].points[i]; p.understood=!p.understood; }, nextSection(){ if(this.currentSection < this.sections.length-1) this.currentSection++; }, previousSection(){ if(this.currentSection>0) this.currentSection--; } }
+        }).mount('#app');
+    </script>
+    <script id="sections-data" type="application/json">[]</script>
+</body>
+</html>
