@@ -90,7 +90,6 @@
                                 {{ point.content }}
                             </p>
                             
-                            <!-- Life Example -->
                             <div class="life-example text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">🌟 生活小例子</h4>
                                 <p class="text-sm leading-relaxed">
@@ -98,7 +97,6 @@
                                 </p>
                             </div>
 
-                            <!-- Education Example -->
                             <div v-if="point.educationExample" class="education-example text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">🏫 教育实践</h4>
                                 <p class="text-sm leading-relaxed">
@@ -106,7 +104,6 @@
                                 </p>
                             </div>
 
-                            <!-- Practice Example -->
                             <div v-if="point.practiceExample" class="practice-example text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">⚡ 教学实施</h4>
                                 <p class="text-sm leading-relaxed">
@@ -114,7 +111,6 @@
                                 </p>
                             </div>
 
-                            <!-- Teaching Demo -->
                             <div v-if="point.teachingDemo" class="teaching-demo text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">🎭 教学演示</h4>
                                 <p class="text-sm leading-relaxed">
@@ -122,7 +118,6 @@
                                 </p>
                             </div>
 
-                            <!-- Interactive Quiz -->
                             <div v-if="point.quiz" class="interactive-quiz text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">🤔 互动思考</h4>
                                 <p class="text-sm mb-3">{{ point.quiz.question }}</p>
@@ -139,7 +134,6 @@
                                 </div>
                             </div>
 
-                            <!-- Case Study -->
                             <div v-if="point.caseStudy" class="case-study text-white rounded-lg p-4 mb-4">
                                 <h4 class="font-semibold mb-2">📖 案例分析</h4>
                                 <p class="text-sm leading-relaxed">
@@ -147,7 +141,6 @@
                                 </p>
                             </div>
 
-                            <!-- Interactive Element -->
                             <div class="bg-gray-50 rounded-lg p-4">
                                 <button @click="toggleUnderstanding(pointIndex)" 
                                         class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition-colors mr-2">
@@ -192,7 +185,6 @@
                         </div>
                     </div>
 
-                    <!-- Navigation Buttons -->
                     <div class="flex justify-between mt-8 pt-6 border-t">
                         <button @click="previousSection" 
                                 :disabled="currentSection === 0"
@@ -208,7 +200,6 @@
                 </div>
             </transition>
 
-            <!-- Final Summary -->
             <div v-if="allUnderstood" class="mt-8 final-celebration border-2 border-orange-200 rounded-lg p-6">
                 <h3 class="text-2xl font-bold text-orange-800 mb-4 text-center">🎉🎊 恭喜完成终极学习之旅！🎊🎉</h3>
                 <p class="text-orange-700 text-center mb-6">
@@ -217,10 +208,9 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="bg-white border-t mt-12">
             <div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600">
-                <p>📖 GitHub Pages 部署版本</p>
+                <p>📖 从理论到实践，从理念到方法 | 知识增长方式转变终极完整互动学习网站 | 让学术学习成为一场精彩的探索之旅！</p>
             </div>
         </footer>
     </div>
@@ -232,9 +222,297 @@
                 return {
                     currentSection: 0,
                     sections: [
-                        { icon: '🌱', title: '现代知识增长方式', subtitle: '...', points: [ { title: '...', content: '...', example: '...', understood: false } ] },
-                        { icon: '⚡', title: '对现代知识观的批判', subtitle: '...', points: [ { title: '...', content: '...', example: '...', understood: false } ] },
-                        { icon: '🚀', title: '后现代知识增长方式', subtitle: '...', points: [ { title: '...', content: '...', example: '...', understood: false } ] }
+                        {
+                            icon: '🌱',
+                            title: '现代知识增长方式',
+                            description: '了解传统的知识积累观念',
+                            subtitle: '探索17世纪以来科学知识增长的传统模式',
+                            points: [
+                                {
+                                    title: '反映与揭示：知识的确定性追求',
+                                    content: '现代知识增长被视为一个不断"反映"和"揭示"认识对象本质的过程，强调知识的确定性、符合性和一致性。就像科学家通过实验来发现自然界的"秘密"一样。',
+                                    example: '就像我们做数学题，认为有一个标准答案在那里等着我们去发现。比如1+1=2，我们相信这是永恒不变的真理，通过学习和练习就能掌握它。',
+                                    understood: false,
+                                    reflection: '知识的确定性让我们感到安全，就像数学公式一样可靠。'
+                                },
+                                {
+                                    title: '理性训练：纯粹的认识主体',
+                                    content: '为了获得真正的知识，人们需要剔除个人的"愿望""情感""意志"等非理性因素，成为"纯粹的"认识主体，专注于对象的真实性、可检验性和确定性。',
+                                    example: '就像考试时，老师会要求我们保持冷静，不要被情绪影响，专心答题。我们相信只要按照正确的方法，就能得到正确的答案。',
+                                    understood: false,
+                                    reflection: '理性思维确实重要，但我们的情感和经验也是宝贵的财富。'
+                                },
+                                {
+                                    title: '专业化训练：现代知识产业',
+                                    content: '知识生产成为一种具有严格"规范化"和"制度性"的现代专业，需要经过长期的"准备阶段"和"训练阶段"，掌握逻辑、实验、数据处理等技能。',
+                                    example: '就像医生需要经过多年的医学院学习和实习才能行医，科学家也需要专业的训练才能进行研究工作。这种专业化确保了知识的质量。',
+                                    understood: false,
+                                    reflection: '专业化让知识更加精确，但也可能限制了跨领域的创新。'
+                                }
+                            ]
+                        },
+                        {
+                            icon: '⚡',
+                            title: '对现代知识观的批判',
+                            description: '重新审视知识增长的本质',
+                            subtitle: '了解学者们如何挑战传统的知识积累观念',
+                            points: [
+                                {
+                                    title: '知识不是简单的积累',
+                                    content: '波普尔等学者认为，知识增长不是简单的积累过程，而是通过"反驳"和"证伪"不断改造旧理论的过程。新的理论取代旧的范式，带来整体认识框架的转换。',
+                                    example: '就像智能手机取代了传统手机，不是简单的功能增加，而是整个使用方式的改变。我们不再只是打电话，而是用手机上网、拍照、社交等。',
+                                    understood: false,
+                                    reflection: '知识的增长更像是革命而非进化，需要打破旧有思维模式。'
+                                },
+                                {
+                                    title: '非理性因素的重要性',
+                                    content: '波兰尼指出，在知识生产过程中，个体的非理性因素如信念、激情、偏好、直觉等是根本不可缺少的。科学发现需要美感和灵感的启发。',
+                                    example: '就像爱因斯坦提出相对论，不仅是逻辑推理的结果，更是源于他对宇宙奥秘的深深好奇和想象力。很多科学发现都始于科学家的直觉和灵感。',
+                                    understood: false,
+                                    reflection: '创造力和想象力是科学发现中不可或缺的因素。'
+                                },
+                                {
+                                    title: '跨学科的综合趋势',
+                                    content: '现代知识的增长呈现出"一体化"和"综合化"的倾向。纯粹知识的增长往往沿着与专业化相反的方向发展，需要多学科的结合。',
+                                    example: '就像现在很火的AI人工智能，它结合了计算机科学、心理学、神经科学、哲学等多个学科的知识。不是单一学科的深入，而是多学科的融合。',
+                                    understood: false,
+                                    reflection: '未来的创新往往发生在学科的交叉点上。'
+                                }
+                            ]
+                        },
+                        {
+                            icon: '🚀',
+                            title: '后现代知识增长方式',
+                            description: '探索知识增长的新模式',
+                            subtitle: '理解当代知识创新的特点',
+                            points: [
+                                {
+                                    title: '批判性与创造性',
+                                    content: '后现代知识增长强调批判性思维和创造性思维的重要性。不再盲目接受权威观点，而是勇于质疑和创新，从不同的角度思考问题。',
+                                    example: '就像现在的创业者，他们不会完全照搬传统的商业模式，而是会质疑："为什么要这样做？有没有更好的方法？"于是就有了共享经济、短视频等新的商业模式。',
+                                    understood: false,
+                                    reflection: '批判性思维让我们能够突破传统束缚，找到新的解决方案。'
+                                },
+                                {
+                                    title: '社会文化因素的作用',
+                                    content: '知识的增长不再被视为纯粹的个人活动，而是深受社会文化环境影响的集体过程。不同的文化背景和社会环境会产生不同类型的知识。',
+                                    example: '就像中医和西医，它们是在不同的文化背景下发展起来的医学体系。中医强调整体和平衡，西医注重局部和精确，两者都是宝贵的知识财富。',
+                                    understood: false,
+                                    reflection: '多元化的文化背景为知识增长提供了丰富的土壤。'
+                                },
+                                {
+                                    title: '终身学习与适应性',
+                                    content: '在快速变化的时代，知识的半衰期越来越短。现代人需要具备终身学习的能力，不断更新自己的知识结构，适应新的挑战。',
+                                    example: '就像现在的程序员，他们需要不断学习新的编程语言和技术。几年前还很流行的技术，现在可能已经被淘汰了。学习成为了一生的必修课。',
+                                    understood: false,
+                                    reflection: '在变化的世界中，学习能力比已有的知识更重要。'
+                                }
+                            ]
+                        },
+                        {
+                            icon: '🎯',
+                            title: '教育方向的转变',
+                            description: '从知识传授到能力培养',
+                            subtitle: '基于新的知识增长方式，重新思考教育目标',
+                            points: [
+                                {
+                                    title: '从"双基"到批判意识',
+                                    content: '传统的"双基"（基础知识和基本技能）教育强调知识的确定性积累，但新的知识观认为没有任何知识是不容怀疑的。教育应该培养学生的批判意识和探索精神。',
+                                    example: '就像学习历史，不是简单地记住历史事件的时间和地点，而是要思考：这些事件为什么会发生？有没有其他的解释？不同的历史学家有什么不同的观点？',
+                                    educationExample: '在课堂上，老师不再直接给出标准答案，而是引导学生提出问题："你为什么这么认为？""还有其他的可能性吗？"通过这样的讨论培养学生的批判思维。',
+                                    understood: false,
+                                    reflection: '批判不是否定，而是积极的理解和再思考。',
+                                    quiz: {
+                                        question: '以下哪种做法最能培养学生的批判意识？',
+                                        options: ['A. 要求学生背诵标准答案', 'B. 鼓励学生提出不同观点', 'C. 只教授确定的知识', 'D. 避免讨论有争议的话题'],
+                                        selected: null,
+                                        explanation: '答案是B。鼓励学生提出不同观点可以让他们学会质疑、思考和分析，这是培养批判意识的关键。'
+                                    }
+                                },
+                                {
+                                    title: '综合能力和跨领域交流',
+                                    content: '后现代知识的增长越来越趋向于"综合与跨界"模式。教育应该培养学生的综合能力和跨领域交流能力，而不是局限于单一学科。',
+                                    example: '就像解决气候变化问题，需要科学家研究数据、工程师设计技术、经济学家分析成本、政治家制定政策、教育家提高意识。这是一个典型的跨学科合作。',
+                                    educationExample: '学校可以设计项目式学习，让学生们组成跨学科团队，共同解决一个真实问题。比如设计一个环保校园，需要科学知识、数学计算、艺术设计和团队合作。',
+                                    understood: false,
+                                    reflection: '未来的创新往往发生在学科的交叉点上。',
+                                    practical: [
+                                        '组织跨学科项目学习',
+                                        '鼓励学生参加综合性竞赛',
+                                        '建立学科间的联系和对话',
+                                        '培养学生的系统思维能力'
+                                    ]
+                                },
+                                {
+                                    title: '社会因素在知识生产中的作用',
+                                    content: '知识社会学研究表明，知识的增长受到社会因素的影响。教育应该让学生理解知识与社会的关系，学会在知识共同体中工作和交流。',
+                                    example: '就像COVID-19疫苗的研发，不仅是科学家的工作，还需要政府资助、企业合作、公众参与、媒体传播等多个社会因素的配合。',
+                                    educationExample: '在课堂上模拟学术会议，让学生体验如何提出研究想法、回应同行质疑、合作解决问题。这样他们就能理解知识是在社会互动中产生的。',
+                                    understood: false,
+                                    reflection: '知识不是孤立的个人产物，而是社会合作的成果。',
+                                    caseStudy: '案例：一个科学发现是如何产生的？从实验室的初始想法，到申请研究经费，到与同行讨论，到发表论文，到被其他科学家验证和应用，整个过程都充满了社会互动。'
+                                }
+                            ]
+                        },
+                        {
+                            icon: '🏫',
+                            title: '课程与教学改革',
+                            description: '构建新的教学模式',
+                            subtitle: '基于新的教育理念，重新设计课程和教学方法',
+                            points: [
+                                {
+                                    title: '课程编制的"故事化"',
+                                    content: '传统的课程编制将知识呈现为确定性的、唯一的真理。新的课程应该将知识"故事化"，展现知识产生的真实历史过程、社会背景、人物故事和学术争论。',
+                                    example: '就像学习牛顿定律，不只是记住公式F=ma，而是了解牛顿生活的时代、他思考的问题、与前人理论的关系、以及这个理论如何影响了后来的科学发展。',
+                                    educationExample: '在教授DNA双螺旋结构时，不仅讲结构本身，还讲沃森和克里克如何在前人研究基础上提出模型，他们的竞争对手是谁，这个发现如何开启了分子生物学时代。',
+                                    understood: false,
+                                    reflection: '知识故事让抽象的概念变得生动有趣，也展现了知识的真实发展过程。',
+                                    quiz: {
+                                        question: '课程"故事化"的主要目的是什么？',
+                                        options: ['A. 让课程更有趣', 'B. 展现知识的历史发展过程', 'C. 帮助学生记忆', 'D. 以上都是'],
+                                        selected: null,
+                                        explanation: '答案是D。课程故事化不仅让学习更有趣，更重要的是展现知识产生的真实过程，包括历史背景、人物故事、学术争论等，帮助学生全面理解知识。'
+                                    }
+                                },
+                                {
+                                    title: '艺术教育与科学教育的融合',
+                                    content: '新的知识观认为，审美和想象力不仅是科学发现的副产品，而是科学发展的必要条件。艺术教育能够培养学生的想象力和心灵敏感性，为知识创新准备必要条件。',
+                                    example: '就像爱因斯坦不仅是一位伟大的物理学家，还是一位出色的小提琴手。他曾说："想象力比知识更重要，因为知识是有限的，而想象力概括着世界上的一切。"',
+                                    educationExample: '在科学课上融入艺术元素：让学生用绘画表达科学概念，用戏剧表演科学发现过程，用音乐表达科学的美感。比如在学习光合作用时，让学生画出他们心中的"能量之舞"。',
+                                    understood: false,
+                                    reflection: '科学和艺术不是对立的两条路，而是相辅相成的创新源泉。',
+                                    practical: [
+                                        '在科学课程中加入美学元素',
+                                        '鼓励学生用艺术形式表达科学概念',
+                                        '组织科学与艺术结合的项目',
+                                        '培养学生的想象力和创造力'
+                                    ]
+                                },
+                                {
+                                    title: '师生与生生的交流合作',
+                                    content: '新的教学模式强调教师和学生、学生和学生之间的交流合作。课堂不再是教师单向传授知识的"舞台"，而是师生共同探索的学习共同体。',
+                                    example: '就像现代科研团队，资深科学家指导年轻研究者，同事之间互相讨论、质疑、合作。知识是在这样的互动中产生和发展的，而不是靠某个人单独完成的。',
+                                    educationExample: '采用"学习共同体"模式：学生分组研究不同主题，然后互相教授；老师作为引导者和协调者，而不是知识的唯一来源。比如一个小组研究环境污染，另一个小组研究清洁能源，然后互相分享。',
+                                    understood: false,
+                                    reflection: '最好的学习方式不是被动接受，而是主动参与和互动。',
+                                    caseStudy: '案例：一个研究项目是如何进行的？从提出问题，到文献调研，到设计方案，到实验验证，到结果分析，到论文写作，每个环节都需要与导师、同事、同行进行交流和合作。'
+                                }
+                            ]
+                        },
+                        {
+                            icon: '⚡',
+                            title: '教学实践方法论',
+                            description: '从理念到实践的具体实施',
+                            subtitle: '基于第7页论文内容，掌握具体的教学实施方法',
+                            points: [
+                                {
+                                    title: '学生观的根本转变',
+                                    content: '教师不应该将学生看作是"不成熟的认识主体"，而应该将他们看成是具有认识能力的人。不应该将教材知识看成是"客观的"、"绝对的"和"价值中立的"知识，而应该认识到教材知识的社会性、渐进性、价值性。',
+                                    example: '就像园丁看待花朵，不是认为花朵需要被塑造，而是认识到每朵花都有自己独特的生长规律和美丽。教师应该相信学生有自己独特的认知方式和创造潜力。',
+                                    educationExample: '在课堂上，老师不再说"你们还不懂，我来告诉你们答案"，而是说"你们是怎么想的？有什么不同的看法？让我们一起探讨这个问题"。这样能够激发学生的主动思考和创造性。',
+                                    practiceExample: '实践方法：1）课前让学生预习并提出问题；2）课堂上鼓励学生分享自己的观点；3）对学生的想法给予积极回应和引导；4）承认教师自己也不是全知全能的，与学生共同学习。',
+                                    understood: false,
+                                    reflection: '每个学生都是独特的认识主体，都有创造的潜能。',
+                                    methodology: [
+                                        '建立平等对话的师生关系',
+                                        '相信学生的认知能力和创造潜力',
+                                        '鼓励学生表达个人观点和想法',
+                                        '承认知识的多元性和价值性'
+                                    ]
+                                },
+                                {
+                                    title: '反思性教学与合作性教学',
+                                    content: '反思性教学侧重于引导学生对自己的原有知识进行检验和重建；合作性教学侧重于学生在学习过程中的合作与交流，通过讨论、对话、反馈、协商以及达成一致等方式，促使他们在学习生活中形成基本要求。',
+                                    example: '就像科学家不仅要做实验，还要不断反思自己的研究方法和假设；不仅要在实验室工作，还要与同行交流讨论，接受质疑和建议。',
+                                    educationExample: '反思性教学：让学生写学习日记，定期反思自己的学习过程和方法；合作性教学：学生分组完成项目，学会倾听他人意见、表达自己观点、达成共识。',
+                                    practiceExample: '实施步骤：1）建立学习反思机制（日记、周记、学习总结）；2）设计合作学习任务（小组项目、同伴互评）；3）创造对话交流机会（讨论课、辩论会）；4）建立反馈协商机制（师生对话、生生互评）。',
+                                    understood: false,
+                                    reflection: '反思和合作是知识创新的两个基本途径。',
+                                    quiz: {
+                                        question: '反思性教学与合作性教学的主要区别是什么？',
+                                        options: ['A. 反思性教学注重个人思考，合作性教学注重群体交流', 'B. 反思性教学注重知识传授，合作性教学注重技能训练', 'C. 反思性教学注重结果评价，合作性教学注重过程体验', 'D. 两者没有本质区别'],
+                                        selected: null,
+                                        explanation: '答案是A。反思性教学侧重于引导学生对自己的原有知识进行检验和重建，而合作性教学侧重于学生在学习过程中的合作与交流。'
+                                    }
+                                },
+                                {
+                                    title: '促进师生互动与生生合作的具体策略',
+                                    content: '教师应运用教学艺术促进各种形式的师生互动、交流、对话与合作。鼓励学生提出各种问题，给学生更多交流时间，使对话逐步深入，组织小组学习任务，促进充分交流与分工合作。',
+                                    example: '就像优秀的导演不仅要有好的剧本，还要善于调动演员的情绪，创造合适的氛围，让每个人都能够发挥自己的特长，共同创造精彩的作品。',
+                                    educationExample: '具体操作：1）设计开放性问题，鼓励学生提出不同观点；2）安排充足的讨论时间，不急于给出标准答案；3）引导学生深入对话，从表面观点到深层原理；4）组织有效的小组活动，明确分工但鼓励协作。',
+                                    practiceExample: '实施技巧：1）使用"思考-配对-分享"模式；2）运用"六顶思考帽"方法；3）建立"学习共同体"规则；4）创造宽容的学术氛围，允许不同观点存在和碰撞。',
+                                    teachingDemo: '教学演示：教师提出一个有争议的问题（如"人工智能是否会取代人类工作"），学生分组讨论，每组提出不同观点，然后进行辩论。教师要引导讨论深入，从表面观点到技术原理、社会影响、伦理问题等层面。',
+                                    understood: false,
+                                    reflection: '真正的学习发生在深入的对话和有效的合作中。',
+                                    practical: [
+                                        '设计开放性问题和讨论活动',
+                                        '安排充足的交流和讨论时间',
+                                        '引导学生进行深入的学术对话',
+                                        '组织有效的小组合作学习'
+                                    ],
+                                    methodology: [
+                                        '运用"思考-配对-分享"模式',
+                                        '建立宽容的学术讨论氛围',
+                                        '引导学生从表面到深层思考',
+                                        '促进学生在争论中相互学习'
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            icon: '🎊',
+                            title: '总结与反思',
+                            description: '理论回顾与实践展望',
+                            subtitle: '回顾整个学习过程，展望未来的教育实践',
+                            points: [
+                                {
+                                    title: '知识增长方式转变的核心要义',
+                                    content: '从现代到后现代，知识增长方式经历了从确定性到不确定性、从积累到批判、从个体到社会、从单一到综合的根本转变。这种转变要求教育从知识传授转向能力培养，从被动接受转向主动建构。',
+                                    example: '就像从牛顿的经典物理学到爱因斯坦的相对论，不是简单的知识积累，而是对整个认知框架的根本性重构。这种转变影响了我们对教育本质的理解。',
+                                    educationExample: '教育启示：1）知识不是静态的真理，而是动态的发展过程；2）学生不是被动的容器，而是主动的认识者；3）教学不是单向的传授，而是双向的建构；4）学习不是个体的活动，而是社会的合作。',
+                                    practiceExample: '实践转化：1）在教学中融入批判性思维训练；2）设计跨学科的综合学习项目；3）创建师生互动的学习共同体；4）培养学生的创新意识和能力。',
+                                    understood: false,
+                                    reflection: '理解知识增长方式的转变，是教育改革的认识论基础。',
+                                    caseStudy: '整体回顾：石中英教授的论文为我们提供了一个完整的理论框架，从知识观的转变到教育实践的变革，形成了一个逻辑严密的体系。这个体系不仅解释了为什么需要教育改革，也指明了如何进行教育改革。'
+                                },
+                                {
+                                    title: '教育变革的实践路径',
+                                    content: '基于新的知识观，教育变革应该遵循以下路径：改变学生观和知识观，实施反思性和合作性教学，促进师生互动和生生合作，培养学生的批判意识、创新能力和合作精神。',
+                                    example: '就像建造一座大楼，需要先有设计理念（知识观），然后准备建筑材料（课程内容），再掌握施工技术（教学方法），最后通过团队合作（师生合作）完成建设。',
+                                    educationExample: '实施框架：1）理念更新：确立新的学生观和知识观；2）课程重构：实现课程内容的"故事化"和综合化；3）教学改革：采用反思性和合作性教学方法；4）评价创新：建立多元化的学习评价体系。',
+                                    practiceExample: '操作策略：1）从简单的课堂讨论开始；2）逐步引入跨学科项目；3）建立学习共同体文化；4）持续反思和改进实践；5）与同事分享和合作。',
+                                    understood: false,
+                                    reflection: '教育变革是一个系统工程，需要理念、内容、方法和评价的全面提升。',
+                                    practical: [
+                                        '从理念更新开始教育变革',
+                                        '逐步实施新的教学方法',
+                                        '建立持续反思的机制',
+                                        '与同事形成学习共同体'
+                                    ],
+                                    methodology: [
+                                        '制定循序渐进的实施计划',
+                                        '建立有效的反馈评价机制',
+                                        '创造支持性的学校文化',
+                                        '持续学习和专业发展'
+                                    ]
+                                },
+                                {
+                                    title: '面向未来的教育展望',
+                                    content: '未来的教育应该是开放的、多元的、合作的、创新的。教师不再是知识的权威，而是学习的引导者；学生不再是被动接受者，而是主动建构者；课堂不再是单向传授的场所，而是互动合作的平台。',
+                                    example: '就像互联网改变了信息传播方式，新的知识观将改变教育模式。未来的教育将更加注重个性化、协作化、创新化和终身化，培养能够适应快速变化社会的人才。',
+                                    educationExample: '未来特征：1）个性化学习：根据学生特点定制学习路径；2）协作化学习：强调团队合作和知识共享；3）创新性学习：培养创造性和批判性思维；4）终身化学习：建立持续学习的意识和能力。',
+                                    practiceExample: '行动建议：1）保持开放的学习心态；2）积极参与教育改革实践；3）与同事建立专业学习共同体；4）关注教育发展趋势和前沿理论；5）不断反思和改进自己的教学实践。',
+                                    understood: false,
+                                    reflection: '教育的未来掌握在每一个教育工作者手中，需要我们共同努力创造。',
+                                    quiz: {
+                                        question: '面向未来的教育最重要的特征是什么？',
+                                        options: ['A. 标准化和统一化', 'B. 个性化和多样化', 'C. 传统化和保守化', 'D. 简单化和容易化'],
+                                        selected: null,
+                                        explanation: '答案是B。未来的教育应该是个性化的（根据学生特点定制）、多样化的（多种学习方式并存）、协作化的（强调团队合作）、创新化的（培养创造性思维）。'
+                                    }
+                                }
+                            ]
+                        }
                     ]
                 };
             },
@@ -255,9 +533,20 @@
                     this.sections[this.currentSection].points[pointIndex].understood = 
                         !this.sections[this.currentSection].points[pointIndex].understood;
                 },
-                selectAnswer(pointIndex, optionIndex) {},
-                showPractical(pointIndex) {},
-                showMethodology(pointIndex) {},
+                selectAnswer(pointIndex, optionIndex) {
+                    const point = this.sections[this.currentSection].points[pointIndex];
+                    if (point.quiz) {
+                        point.quiz.selected = optionIndex;
+                    }
+                },
+                showPractical(pointIndex) {
+                    const point = this.sections[this.currentSection].points[pointIndex];
+                    point.showPractical = !point.showPractical;
+                },
+                showMethodology(pointIndex) {
+                    const point = this.sections[this.currentSection].points[pointIndex];
+                    point.showMethodology = !point.showMethodology;
+                },
                 nextSection() {
                     if (this.currentSection < this.sections.length - 1) {
                         this.currentSection++;

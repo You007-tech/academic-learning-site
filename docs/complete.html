@@ -12,7 +12,6 @@
         .fade-enter-active, .fade-leave-active { transition: opacity 0.5s; }
         .fade-enter-from, .fade-leave-to { opacity: 0; }
         .slide-up-enter-active, .slide-up-leave-active { transition: all 0.3s ease; }
-        .slide-up-enter-from, .slide-up-leave-to { transform: translateY(20px); opacity: 0; }
         .life-example { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
         .education-example { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
         .knowledge-card { transition: all 0.3s ease; }
@@ -26,6 +25,7 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <div id="app">
+        <!-- Header -->
         <header class="bg-white shadow-sm border-b sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 py-4">
                 <div class="flex items-center justify-between">
@@ -41,18 +41,18 @@
         </header>
 
         <div class="max-w-7xl mx-auto px-4 py-8">
-            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="bg白色 rounded-lg shadow-md p-6 mb-8">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">🎯 欢迎来到完整学习之旅</h2>
                 <p class="text-gray-600 leading-relaxed">基于石中英教授的论文，我们将深入探讨知识增长方式的转变如何影响教育变革。从理论到实践，从理念到方法，让我们一起探索如何培养具有创新意识的学生！</p>
                 <p class="text-sm text-gray-500">返回首页：<a class="text-blue-600 underline" href="./">终极版</a> · 基础版：<a class="text-blue-600 underline" href="./basic">basic</a></p>
             </div>
 
             <div class="flex flex-wrap gap-2 mb-8">
-                <button v-for="(section, index) in sections" :key="index" @click="currentSection = index" class="section-tab px-4 py-2 rounded-lg font-medium transition-all" :class="currentSection === index ? 'active' : 'bg-white text-gray-700 hover:bg-gray-50'">{{ section.icon }} {{ section.title }}</button>
+                <button v-for="(section, index) in sections" :key="index" @click="currentSection = index" class="section-tab px-4 py-2 rounded-lg font-medium transition-all" :class="currentSection === index ? 'active' : 'bg-white text灰色-700 hover:bg-gray-50'">{{ section.icon }} {{ section.title }}</button>
             </div>
 
             <transition name="fade" mode="out-in">
-                <div :key="currentSection" class="bg-white rounded-lg shadow-md p-8">
+                <div :key="currentSection" class="bg白色 rounded-lg shadow-md p-8">
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ sections[currentSection].title }}</h2>
                         <p class="text-gray-600">{{ sections[currentSection].subtitle }}</p>
@@ -62,13 +62,13 @@
                         <div v-for="(point, pointIndex) in sections[currentSection].points" :key="pointIndex" class="border-l-4 border-blue-500 pl-6">
                             <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ point.title }}</h3>
                             <p class="text-gray-700 mb-4 leading-relaxed">{{ point.content }}</p>
-                            <div class="life-example text-white rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🌟 生活小例子</h4><p class="text-sm leading-relaxed">{{ point.example }}</p></div>
-                            <div v-if="point.educationExample" class="education-example text-white rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🏫 教育实践</h4><p class="text-sm leading-relaxed">{{ point.educationExample }}</p></div>
-                            <div v-if="point.quiz" class="interactive-quiz text-white rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🤔 互动思考</h4><p class="text-sm mb-3">{{ point.quiz.question }}</p><div class="space-y-2"><button v-for="(option, optIndex) in point.quiz.options" :key="optIndex" @click="selectAnswer(pointIndex, optIndex)" class="block w-full text-left px-3 py-2 rounded bg-white bg-opacity-20 hover:bg-opacity-30 transition-all text-sm">{{ option }}</button></div><div v-if="point.quiz.selected !== null" class="mt-3 p-3 bg-white bg-opacity-20 rounded"><p class="text-sm">{{ point.quiz.explanation }}</p></div></div>
-                            <div v-if="point.caseStudy" class="case-study text-white rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">📖 案例分析</h4><p class="text-sm leading-relaxed">{{ point.caseStudy }}</p></div>
+                            <div class="life-example text白色 rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🌟 生活小例子</h4><p class="text-sm leading-relaxed">{{ point.example }}</p></div>
+                            <div v-if="point.educationExample" class="education-example text白色 rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🏫 教育实践</h4><p class="text-sm leading-relaxed">{{ point.educationExample }}</p></div>
+                            <div v-if="point.quiz" class="interactive-quiz text白色 rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">🤔 互动思考</h4><p class="text-sm mb-3">{{ point.quiz.question }}</p><div class="space-y-2"><button v-for="(option, optIndex) in point.quiz.options" :key="optIndex" @click="selectAnswer(pointIndex, optIndex)" class="block w-full text-left px-3 py-2 rounded bg白色 bg-opacity-20 hover:bg-opacity-30 transition-all text-sm">{{ option }}</button></div><div v-if="point.quiz.selected !== null" class="mt-3 p-3 bg白色 bg-opacity-20 rounded"><p class="text-sm">{{ point.quiz.explanation }}</p></div></div>
+                            <div v-if="point.caseStudy" class="case-study text白色 rounded-lg p-4 mb-4"><h4 class="font-semibold mb-2">📖 案例分析</h4><p class="text-sm leading-relaxed">{{ point.caseStudy }}</p></div>
                             <div class="bg-gray-50 rounded-lg p-4">
-                                <button @click="toggleUnderstanding(pointIndex)" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition-colors mr-2">{{ point.understood ? '✅ 已理解' : '🤔 点击理解' }}</button>
-                                <button v-if="point.practical" @click="showPractical(pointIndex)" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">💡 实践应用</button>
+                                <button @click="toggleUnderstanding(pointIndex)" class="bg-blue-500 hover:bg-blue-600 text白色 px-4 py-2 rounded-lg text-sm transition-colors mr-2">{{ point.understood ? '✅ 已理解' : '🤔 点击理解' }}</button>
+                                <button v-if="point.practical" @click="showPractical(pointIndex)" class="bg-green-500 hover:bg-green-600 text白色 px-4 py-2 rounded-lg text-sm transition-colors">💡 实践应用</button>
                                 <transition name="slide-up"><div v-if="point.understood" class="mt-3 p-3 bg-green-50 rounded-lg"><p class="text-green-700 text-sm">🎉 太棒了！你已经理解了这个概念。{{ point.reflection }}</p></div></transition>
                                 <transition name="slide-up"><div v-if="point.showPractical" class="mt-3 p-3 bg-blue-50 rounded-lg"><h5 class="font-semibold text-blue-800 mb-2">实践应用建议：</h5><ul class="text-blue-700 text-sm space-y-1"><li v-for="(tip, tipIndex) in point.practical" :key="tipIndex">• {{ tip }}</li></ul></div></transition>
                             </div>
@@ -76,8 +76,8 @@
                     </div>
 
                     <div class="flex justify-between mt-8 pt-6 border-t">
-                        <button @click="previousSection" :disabled="currentSection === 0" class="bg-gray-500 hover:bg-gray-600 disabled:bg-gray-300 text-white px-6 py-2 rounded-lg transition-colors">← 上一节</button>
-                        <button @click="nextSection" :disabled="currentSection === sections.length - 1" class="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white px-6 py-2 rounded-lg transition-colors">下一节 →</button>
+                        <button @click="previousSection" :disabled="currentSection === 0" class="bg-gray-500 hover:bg-gray-600 disabled:bg-gray-300 text白色 px-6 py-2 rounded-lg transition-colors">← 上一节</button>
+                        <button @click="nextSection" :disabled="currentSection === sections.length - 1" class="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text白色 px-6 py-2 rounded-lg transition-colors">下一节 →</button>
                     </div>
                 </div>
             </transition>
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <footer class="bg-white border-t mt-12"><div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600"><p>📖 GitHub Pages 完整版</p></div></footer>
+        <footer class="bg白色 border-t mt-12"><div class="max-w-7xl mx-auto px-4 py-6 text-center text灰色-600"><p>📖 GitHub Pages 完整版</p></div></footer>
     </div>
 
     <script>
